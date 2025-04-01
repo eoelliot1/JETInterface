@@ -11,14 +11,16 @@
 2. Sync maven in pom.xml file.
 3. Compile RestaurantInterface.java
 4. Run RestaurantInterface.java
-5. The progam will ask you to "Enter a postcode..."
-    You must type a postcode for example: CT1 2EH  and hit enter.
-6. The program should return with corressponding results the postcode inputted.
+5. The program will ask you to "Enter a UK postcode..."
+    You must type a UK postcode for example: CT1 2EH  and hit enter.
+6. The program should return with corresponding results the postcode inputted.
 
 <br>
 
 ## Assumptions:
-- By 'restaurant objects' I assumed it was refering to the restaurants field since that seemed to contain all the details that the assignment was looking for.
+- The assignment asked for rating 'as an number', so I assumed the rating was referring to the count field in ratings since they are usually integer numbers.
+- By 'restaurant objects' I assumed it was referring to the restaurants field since that seemed to contain all the details that the assignment was looking for.
 ## Improvements:
-- Could improve in how address data is displayed. Currently it just returns the object but it it might worth organising the output to make it more humanly interpretable.  
+- The program can be improved by considering cases of when user input for the postcode is incorrect. An example, would be validating the input using regex and sending an error messages if the postcode can't be validated as UK postcode. This will improve the robustness of the program
+- The program could improve in how address data is displayed. Currently, it just prints the whole object however, it would be worth organising the output to make it more humanly interpretable.  
 <br>

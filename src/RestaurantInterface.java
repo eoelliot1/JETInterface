@@ -1,4 +1,3 @@
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.net.URI;
@@ -9,16 +8,16 @@ import java.util.Scanner;
 
 public class RestaurantInterface {
     public static void main(String[] args) {
-        //Obtaining user input
+        // Obtaining user input
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter postcode...");
+        System.out.print("Enter a UK postcode...");
         try {
 
             String input = scanner.nextLine().replaceAll("\\s", "");
             String API_ENDPOINT = "https://uk.api.just-eat.io/discovery/uk/restaurants/enriched/bypostcode/" + input; //API EndPoint
             System.out.println("Searching: " + API_ENDPOINT);
 
-            // Initiate HTTP Client
+            // Initiate HTTP client
             HttpClient client = HttpClient.newHttpClient();
 
             // Initiate GET request
@@ -37,13 +36,16 @@ public class RestaurantInterface {
 
             if (restaurants.isArray()) {
                 for (int i = 0; i < 10; i++) {
+
+                    // Retrieve restaurant Paths
                     JsonNode name = restaurants.get(i).findPath("name");
                     JsonNode address = restaurants.get(i).findPath("address");
-                    JsonNode rating = restaurants.get(i).findPath("rating").findPath("count"); //MAYBE REMOVE COUNT AND JUST DISPLAY WHOLE THING? ITS WHAT THEY ASK FOR
+                    JsonNode rating = restaurants.get(i).findPath("rating").findPath("count");
                     JsonNode Cuisines = restaurants.get(i).findPath("cuisines");
 
 
-                    System.out.println("User No." + i + "---------------------------------------------------------------------------------------------------------------------------------------");
+                    // Print results
+                    System.out.println("Restaurant Number: " + (i + 1));
                     System.out.println("Name: " + name);
                     System.out.println("Address: " + address);
                     System.out.println("Rating: " + rating);
@@ -53,8 +55,6 @@ public class RestaurantInterface {
                     }
                 }
             }
-
-
             scanner.close();
         } catch (Exception e) {
             e.printStackTrace();
