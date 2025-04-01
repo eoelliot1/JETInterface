@@ -10,7 +10,7 @@
 1. **Clone the repository:** https://github.com/eoelliot1/JETInterface.git
 2. Sync maven in pom.xml file.
 3. Compile RestaurantInterface.java
-4. Run RestaurantInterface.java
+4. Run RestaurantInterface.java in src directory
 5. The program will ask you to "Enter a UK postcode..."
     You must type a UK postcode for example: CT1 2EH  and hit enter.
 6. The program should return with corresponding results the postcode inputted.
